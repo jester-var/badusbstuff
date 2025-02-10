@@ -1,4 +1,22 @@
 function Invoke-BSOD {
+<#
+.SYNOPSIS
+
+Invokes a Blue Screen of Death on Windows without requiring admin privileges.
+Author:  Barrett Adams (@peewpw)
+
+.DESCRIPTION
+
+Raises an error that causes a Blue Screen of Death on Windows. It does this without
+requiring administrator privileges.
+
+.EXAMPLE
+
+PS>Import-Module .\Invoke-BSOD.ps1
+PS>Invoke-BSOD
+   (Blue Screen Incoming...)
+
+#>
 $source = @"
 using System;
 using System.Runtime.InteropServices;
@@ -25,6 +43,24 @@ public static class CS{
 }
 
 function Get-DumpSettings {
+<#
+.SYNOPSIS
+
+Gets the crash dump settings
+Author:  Barrett Adams (@peewpw)
+
+.DESCRIPTION
+
+Queries the registry for crash dump settings so that you'll have some idea
+what type of dump you're going to generate, and where it will be.
+
+.EXAMPLE
+
+PS>Import-Module .\Invoke-BSOD.ps1
+PS>Invoke-BSOD
+   (Blue Screen Incoming...)
+
+#>
 	$regdata = Get-ItemProperty -path HKLM:\System\CurrentControlSet\Control\CrashControl
 
 	$dumpsettings = @{}
